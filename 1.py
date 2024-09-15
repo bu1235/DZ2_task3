@@ -1,23 +1,27 @@
-#Задача 3. Написать упрощенную версию алгоритма RLE. Алгоритм RLE объединяет подряд идущие символы в коэффициент и символ.
+#Кинотеатр. Дан список списков, каждый вложенный список состоит из 1 и 0, Количество вложенных списков - количество рядов. Пользователь вводит сколько билетов ему требуется. Программа должна найти ряд, где можно приобрести нужно количество билетов (места должны быть рядом). Если таких рядов несколько, то ближайший к экрану (ближайшим считается нулевой ряд). Ели таких мест нет, то вывести False
 #Пример:
-#aaabbbbccccc -> 3a4b5c
-#asssdddsssddd -> 1a3s3d3s3d
-#abcba -> 1a1b1c1b1a
+#[[0,1,1,0], [1, 0, 0, 0], [0,1,0,0]], 2 -> 1
+#[[0,1,1,0], [1, 0, 1, 0], [1,1,0,1]], 2 -> False
 
 
-a = input("Введите строку: ")
-print(a)
-result = []
-count = 1
-for i in range(len(a) - 1):
-        if a[i] == a[i + 1]:
-            count = count + 1
-        else:
-            result.append((count, a[i]))
-            count = 1
-#        print(result)
-if count > 0:
-        result.append((count, a[-1]))
-print(result)
-final_result = ''.join([str(x[0]) + x[1] for x in result])
-print(final_result)
+a = int(input("Введите число билетов: "))
+list_a = "0"
+while a>1:
+        list_a = list_a + "0"
+        a = a - 1
+        print(list_a,'---', a)
+
+seats = [[0,1,1,0], [1, 0, 0, 1], [1,0,0,0]]
+i = 0
+#a = "00"
+while i < len(seats):
+        s = seats[i]
+        print(s)
+        s = ''.join(str(x) for x in s)
+        print(s)
+        if list_a in s:
+                print ("Ваш ряд:", i+1)
+                break
+        i = i + 1
+else:
+        print("Нет билетов")
