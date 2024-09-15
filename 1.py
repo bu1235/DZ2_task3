@@ -1,23 +1,12 @@
-#Задача 3. Написать упрощенную версию алгоритма RLE. Алгоритм RLE объединяет подряд идущие символы в коэффициент и символ.
+#Задача 1. Пользователь вводит целое число, программа складывает все цифры числа, с полученным числом - то же самое и так до тех пор, пока не получится однозначное число.
 #Пример:
-#aaabbbbccccc -> 3a4b5c
-#asssdddsssddd -> 1a3s3d3s3d
-#abcba -> 1a1b1c1b1a
+#545 -> 5
+#12345 -> 6
 
-
-a = input("Введите строку: ")
-print(a)
-result = []
-count = 1
-for i in range(len(a) - 1):
-        if a[i] == a[i + 1]:
-            count = count + 1
-        else:
-            result.append((count, a[i]))
-            count = 1
-#        print(result)
-if count > 0:
-        result.append((count, a[-1]))
-print(result)
-final_result = ''.join([str(x[0]) + x[1] for x in result])
-print(final_result)
+input_ = input("Введите целое число: ")
+print(type(input_))
+while len(str(input_)) != 1:
+        print(input_, '---', len(str(input_)))
+        input_ = sum(int(number) for number in str(input_))
+        print(input_)
+print(f"Результат суммы цифр введенного числа {input_}")
