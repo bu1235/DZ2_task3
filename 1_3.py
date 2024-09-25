@@ -9,3 +9,4 @@ def check_num(numm):
 while num := input("Введите число: "):
     numm = int(num)
     print(numm, "->", check_num(numm))
+    print("Для выхода нажмите Enter")
